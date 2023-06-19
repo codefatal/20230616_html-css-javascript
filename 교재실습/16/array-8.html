@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var study = ["html", "css", "web", "jquery"];
+        var newStudy = study.splice(2, 1);
+        var newStudy2 = study.splice(2, 1, "js");
+        document.write("반환된 배열 : " + newStudy2 + "<br>");
+        document.write("변경된 배열 : " + study + "<br>");
+    </script>
+</body>
+</html>
