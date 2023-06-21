@@ -1,0 +1,19 @@
+table {
+    width: 650px;
+}
+th {
+    padding: 5px;
+}
+
+td {
+    float: left;
+    padding: 5px;
+}
+
+hr {
+    float: left;
+    width: 650px;
+    border: 0px;
+    height: 2px;
+    background-color: red;
+}

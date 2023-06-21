@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/20230619_homework4.css"
     <script type="text/javascript" src="js/20230619_homework4.js"></script>
 </head>
 <body>
     <form action="./index.html" method="post" onsubmit="return onCheck()">
+        <hr>
         <table>
             <tr>
                 <th><label>이름</label></th>
-                <td width="180"><input checked type="text" required></td>
+                <td><input checked type="text" required></td>
                 <td></td>
             </tr>
             <tr>
@@ -72,20 +74,20 @@
             </tr>
             <tr>
                 <th>관심분야</th>
-                <td colspan="3">
-                    <input type="checkbox" name="check" value="ch1"><label>생두</label>
-                    <input type="checkbox" name="check" value="ch2"><label>원두</label>
-                    <input type="checkbox" name="check" value="ch3"><label>로스팅</label>
-                    <input type="checkbox" name="check" value="ch4"><label>핸드드립</label>
-                    <input type="checkbox" name="check" value="ch5"><label>에스프레소</label>
-                    <input type="checkbox" name="check" value="ch6"><label>창업</label>
+                <td colspan="2">
+                    <input type="checkbox" name="check" id="ch1"><label for="ch1">생두</label>
+                    <input type="checkbox" name="check" id="ch2"><label for="ch2">원두</label>
+                    <input type="checkbox" name="check" id="ch3"><label for="ch3">로스팅</label>
+                    <input type="checkbox" name="check" id="ch4"><label for="ch4">핸드드립</label>
+                    <input type="checkbox" name="check" id="ch5"><label for="ch5">에스프레소</label>
+                    <input type="checkbox" name="check" id="ch6"><label for="ch6">창업</label>
                 </td>
             </tr>
         </table>
         <hr>
         <table>
             <tr>
-                <th width="580">
+                <th>
                     <button type="submit">회원가입</button>
                     <button type="reset">취소</button>
                 </th>
