@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model</title>
+    <script src="/resources/js/jquery-3.7.0.js"></script>
+    <script>
+        jQuery(document).ready(function() {
+            console.log("여기 loadevent - jQuery ready");
+        });
+        $(document).ready(function() {
+            console.log("여기 loadevent - $ ready");
+        });
+        jQuery(function() {
+            console.log("여기 loadevent - jQuery");
+        });
+        $(function() {
+            console.log("여기 loadevent - $");
+        });
+        $(loadedHandler);
+
+        function loadedHandler() {
+            console.log("loadedHandler 호출")
+        }
+
+        // onload / load : document가 모두 loading이 끝나면 발생하는 event
+        window.addEventListener("load", function() {
+            console.log("여기 loadevent - addEventListener");
+        });
+
+        window.onload = function() {
+            console.log("여기 loadevent");
+            var element1 = $("#content");
+            console.log(element1);
+
+            // window.onload 후에
+            // event 등록 코드
+            $("#btn1").click(aHandler);
+            $("#btn2").click(aHandler);
+            $("#btn3").click(aHandler);
+            $("#btn4").click(aHandler);
+            $("#btn5").click(aHandler);
+        }
+        
+
+        // event handler 정의 - window.onload와 무관한 위치
+        function aHeadler() {
+            console.log("a 호출");
+            var element1 = document.getElementById('content');
+            console.log(element1);
+        }
+
+    </script>
+</head>
+<body>
+    <script>
+        var element1 = $("#content");
+        console.log(element1);
+    </script>
+    <div id="content">
+        <button type="button" id="btn1" class="c1">버튼 1</button>
+        <button type="button" id="btn2" class="c1">버튼 2</button>
+        <button type="button" id="btn3" class="c1 c2">버튼 3</button>
+        <button type="button" id="btn4" class="c2">버튼 4</button>
+        <button type="button" id="btn5" class="c2">버튼 5</button>
+    </div>
+   
+    <script>
+        var element1 = $("#content");
+        console.log(element1);
+    </script>
+    <button type="button" id="btn_add">추가</button>
+    <button type="button" id="btn_del">삭제</button>
+    <!-- <div>안녕 난 js로 만들어진 노드야</div> -->
+    <script>
+        $('#btn_add').on("click", jqAdd);
+        $('#btn_del').on("click", jqDel);
+
+        function jqAdd() {
+            console.log("jqAdd");
+            var htmlVal = "<div>안녕 난 js로 만들어진 노드야</div>"
+            $("body").append(htmlVal);
+        }
+        function jqDel() {
+            console.log("jqDel");
+            var delElement = $('#btn4');
+            delElement.remove();
+        }
+    </script>
+    <script>
+        var element1 = $("#content");
+        console.log(element1);
+    </script>
+    <script>
+        // 화면에 element 요소노드 및 text노드를 추가
+        // function add() {
+        //     var div1 = document.createElement("div");
+        //     var textnode1 = document.createTextNode("안녕 난 js로 만들어진 노드야");
+        //     div1.appendChild(textnode1);
+        //     document.body.appendChild(div1);
+        // }
+
+        // // 화면에 element 요소노드 및 text노드를 삭제
+        // function del() {
+        //     var delElement = document.getElementById('btn4');
+        //     delElement.remove();
+        // }
+    </script>
+</body>
+</html>

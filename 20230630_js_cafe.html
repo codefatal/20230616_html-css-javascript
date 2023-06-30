@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=d, initial-scale=1.0">
+    <title>카페 포스기</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            border: 1px solid #000;
+            border-collapse: collapse;
+        }
+
+        tr, td, th {
+            border: 1px solid #000;
+            padding: 5px;
+        }
+
+        input {
+            border: none;
+        }
+
+        
+    </style>
+    <script>
+        $(loadHeadler);
+        function loadHeadler() {
+            $('input.count').on("blur", cntBlurHeadler);
+            $('[type=button]').on("click", clickEventHeadler);
+        }
+        
+        // 각종 기능 함수들
+        function cntBlurHeadler(event) {
+            $count = Number($(this).val());
+            $price = $(this).parent().prev().text();
+            $sum = $(this).parent().next().children().attr('value', $count * $price);
+        }
+        
+        function clickEventHeadler() {
+            $sumCount = 0;
+            $sumPrice = 0;
+            $('input.count').each(function() {
+                if(!isNaN($(this).val())) {
+                    $sumCount += parseInt($(this).val());
+                }
+            });
+            
+            $('input.sum').each(function() {
+                if(!isNaN($(this).val())) {
+                    $sumPrice += parseInt($(this).val());
+                }
+            });
+            $('input.sumCount').attr('value', $sumCount);
+            $('input.sumPrice').attr('value', $sumPrice);
+        }
+
+        
+    </script>
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+                <th>메뉴</th>
+                <th>가격</th>
+                <th>수량</th>
+                <th>합계</th>
+            </tr>
+            <tr>
+                <td>아메리카노</td>
+                <td class="price">2500</td>
+                <td class="count"><input type="text" class="count"></td>
+                <td class="sum"><input type="text" class="sum" readonly></td>
+            </tr>
+            <tr>
+                <td>카페라떼</td>
+                <td class="price">3000</td>
+                <td class="count"><input type="text" class="count"></td>
+                <td class="sum"><input type="text" class="sum" readonly></td>
+            </tr>
+            <tr>
+                <td>홍차라떼</td>
+                <td class="price">5000</td>
+                <td class="count"><input type="text" class="count"></td>
+                <td class="sum"><input type="text" class="sum" readonly></td>
+            </tr>
+            <tr>
+                <th colspan="2">합계</th>
+                <td class="sumCount"><input type="text" class="sumCount" readonly></td>
+                <td class="sumPrice"><input type="text" class="sumPrice" readonly></td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <button type="reset">초기화</button>
+                    <button type="button" class="btnAdd">계산하기</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -21,6 +21,17 @@ article > #flex_wrap > div{
     border : 1px solid black;
     margin: 5px 3px;
 }
+
+#dom_div .flex_wrap {
+    display: flex;
+}
+#dom_div .flex_wrap  > div img.default-img{
+    width: 100%;
+}
+#dom_div .flex_wrap  > div{
+    border : 1px solid black;
+    margin: 5px 3px;
+}
 article .flex-category > div{
     margin: 0 2px;
     padding: 3px 5px;

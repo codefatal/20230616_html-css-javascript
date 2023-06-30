@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Changer</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <style>
+        div.box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            background-color: #ccc;
+        }
+    </style>
+    <script>
+        $(loadHeadler);
+        function loadHeadler() {
+            $('button.colorBtn').on("click", btnColor);
+            $('input.colorText').on("keypress", textColor);
+            $('select.colorDrop').on("change", dropColor);
+            
+        }
+
+        function btnColor() {
+            if ($(this).hasClass('red')) {
+                $('div.box').css('background-color', 'red');
+            } else if($(this).hasClass('blue')) {
+                $('div.box').css('background-color', 'blue');
+            } else if($(this).hasClass('green')) {
+                $('div.box').css('background-color', 'green');
+            }
+        }
+
+        function textColor(k) {
+            if(k.keyCode == 13) {
+                $('div.box').css('background-color', '#'+$(this).val()); 
+            }
+        }
+
+        function dropColor() {
+            if ($(this).val() == 'red') {
+                $('div.box').css('background-color', 'red');
+            } else if($(this).val() == 'blue') {
+                $('div.box').css('background-color', 'blue');
+            } else if($(this).val() == 'green') {
+                $('div.box').css('background-color', 'green');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="button">
+        <button type="button" class="colorBtn red">Red</button>
+        <button type="button" class="colorBtn blue">Blue</button>
+        <button type="button" class="colorBtn green">Green</button>
+    </div>
+    <div class="text">
+        <input type="text" class="colorText">
+    </div>
+    <div class="dropbox">
+        <select class="colorDrop">
+            <option disabled selected></option>
+            <option class="colorDrop" value="red">Red</option>
+            <option class="colorDrop" value="blue">Blue</option>
+            <option class="colorDrop" value="green">Green</option>
+        </select>
+    </div>
+</body>
+</html>
