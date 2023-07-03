@@ -34,10 +34,12 @@
         // loadHeadler 설정
         // 1. 텍스트 입력창 선택 후 벗어나면 기능 동작
         // 2. 버튼을 클릭 시 기능 동작
+        // 3. reset 버튼 클릭 시 기능 동작
         $(loadHeadler);
         function loadHeadler() {
             $('input.count').on("blur", cntBlurHeadler);
             $('[type=button]').on("click", clickEventHeadler);
+            $('[type=reset]').on("click", resetEventHeadler);
         }
         
         // 텍스트 입력창 선택 후 벗어날 시 기능이 동작하는 함수
@@ -72,6 +74,11 @@
             });
             $('input.sumCount').attr('value', $sumCount);
             $('input.sumPrice').attr('value', $sumPrice);
+        }
+
+        // reset 시 input 태그의 value값 제거
+        function resetEventHeadler() {
+            $('input').attr('value', '');
         }
     </script>
 </head>
