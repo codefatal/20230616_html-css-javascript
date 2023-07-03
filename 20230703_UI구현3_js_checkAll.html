@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CheckAll</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <style>
+        .checkboxs {
+            display: flex;
+            justify-content: flex-start;
+        }
+        .box {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label for="allCheck">전체선택 : </label>
+        <input type="checkbox" id="allCheck">
+        <label for="revCheck">반대선택 : </label>
+        <input type="checkbox" id="revCheck">
+    </div>
+    <hr>
+    <div class="checkboxs">
+        <!-- $checkboxs -->
+    </div>
+    <script>
+        const itemCnt = 10;
+        var $checkboxs = "";
+        for(i=1; i<=itemCnt; i++) {
+            $checkboxs += 
+            `<div class="box">
+                <label for="id-${i}">id-${i} : </label>
+                <input type="checkbox" id="id-"${i}" class="checkitem">
+            </div>`;
+        }
+        $('.checkboxs').append($checkboxs);
+
+
+        // 전체선택 버튼 클릭 시 기능
+        $('input#allCheck').on("click", allCheck);
+        // 반대선택 버튼 클릭 시 기능
+        $('input#revCheck').on("click", revCheck);
+        // id 체크박스 클릭 시 기능
+        $('.checkitem').on("click", itemCheck);
+
+        // checkitem 클래스의 모든 버튼 체크
+        function allCheck(e) {
+            $('.checkitem').prop("checked", $(this).prop("checked"));
+        }
+
+        // 전체선택 버튼이 아닌 checkitem 클래스의 모든 버튼을 클릭 시 전체선택 버튼 체크
+        function itemCheck(e) {
+            if(itemCnt == $('.checkitem:checked').length) {
+                $("#allCheck").prop("checked", true);
+            } else {
+                $("#allCheck").prop("checked", false);
+            }
+        }
+
+        // 반대선택 버튼 클릭 시 체크 반대로 설정
+        function revCheck(e) {
+            $('.checkitem').prop("checked", function(idx, val) { return !val });
+        }
+    </script>
+</body>
+</html>
